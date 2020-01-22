@@ -5,12 +5,25 @@ agent any
         def values = readProperties file: 'extra.properties'
         ip = "${values.IP}"
     }
+    tools{
+        maven 'Maven'
+    }
 
     stages {
-        stage('Get env values'){
+        stage('Get ENV Values'){
             steps{
                 echo "VALUES ARE ${ip}"
             }
         }
+       stage('Testing'){
+            steps{
+                 sh 'mvn clean test'
+            }
+        }
+       stage('Creating JAR'){
+           steps{
+               sh 'mvn clean install'
+           }
+       }
     }
 }
