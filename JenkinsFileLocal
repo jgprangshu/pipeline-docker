@@ -9,9 +9,9 @@ pipeline{
         maven "Maven"
     }
     stages{
-        stage('git clone'){
+        stage('Echo'){
             steps{
-                git 'https://github.com/jgprangshu/pipeline-docker.git'
+                echo 'Hello World'
             }
         }
     }
