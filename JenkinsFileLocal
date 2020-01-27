@@ -1,0 +1,18 @@
+pipeline{
+    environment {
+    registry = "jgprangshu/docker-test"
+    registryCredential = 'dockercred'
+    dockerImage = ''
+    }
+    agent any
+     tools {
+        maven "Maven"
+    }
+    stages{
+        stage('git clone'){
+            steps{
+                git 'https://github.com/jgprangshu/pipeline-docker.git'
+            }
+        }
+    }
+}
