@@ -1,0 +1,4 @@
+hosts: [devservers]
+  tasks:
+  - name: Execute a command using the shell module
+    shell: echo 'Hello from 25'
